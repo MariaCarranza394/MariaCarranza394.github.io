@@ -471,6 +471,38 @@
     padding-left: 16px;
   }
 
+  /* ---------- CONTACT ---------- */
+
+  .contact-block {
+    margin-top: 22px;
+    border-left: 2px solid var(--amber);
+    padding-left: 16px;
+  }
+
+  .contact-phone {
+    display: inline-block;
+    font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+    font-size: 1.55rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--amber);
+    padding-bottom: 2px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .contact-phone:hover {
+    color: var(--amber);
+    border-bottom-color: var(--ink);
+  }
+
+  .contact-hint {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+  }
+
   footer {
     padding: 22px 0 32px;
     font-size: 0.85rem;
@@ -645,7 +677,10 @@
     <div class="section-body">
       <h2>Get in touch</h2>
       <p>Maria is available for clinical laboratory consulting work across Florida, including procedure development, instrument validation, and inspection readiness.</p>
-      <div class="connect-note">Contact details for this section are still being finalized.</div>
+      <div class="contact-block">
+        <a class="contact-phone" href="tel:+18135631923">(813) 563-1923</a>
+        <span class="contact-hint">Call or text</span>
+      </div>
     </div>
   </div>
 </section>
