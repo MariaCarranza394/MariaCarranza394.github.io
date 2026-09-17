@@ -1,0 +1,7 @@
+# Working files used to build the site. Not part of the published website.
+# Safe to delete from your computer whenever you like.
+
+source/
+tools/
+site/
+.claude/
