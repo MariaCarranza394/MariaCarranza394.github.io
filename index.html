@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maria Carranza, MT, SH(ASCP)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --paper: #F1EFE8;
+    --paper-raised: #E8E5DB;
+    --ink: #1B2A32;
+    --ink-soft: #46545C;
+    --line: #D6D1C2;
+    --amber: #B8842E;
+    --amber-soft: #E7D2AC;
+    --teal: #1F5C52;
+    --teal-soft: #CFE1DB;
+    --hero-bg: #16232B;
+    --hero-text: #F1EFE8;
+    --focus: #1F5C52;
+  }
+
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --paper: #14201F;
+      --paper-raised: #1B2926;
+      --ink: #ECE7DA;
+      --ink-soft: #B9BFB9;
+      --line: #34423E;
+      --amber: #D9A65B;
+      --amber-soft: #3A2E1B;
+      --teal: #7FBFAE;
+      --teal-soft: #1E332E;
+      --hero-bg: #0E1614;
+      --hero-text: #ECE7DA;
+      --focus: #7FBFAE;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #14201F;
+    --paper-raised: #1B2926;
+    --ink: #ECE7DA;
+    --ink-soft: #B9BFB9;
+    --line: #34423E;
+    --amber: #D9A65B;
+    --amber-soft: #3A2E1B;
+    --teal: #7FBFAE;
+    --teal-soft: #1E332E;
+    --hero-bg: #0E1614;
+    --hero-text: #ECE7DA;
+    --focus: #7FBFAE;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+
+  a { color: inherit; }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+
+  nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--ink);
+    border-bottom-color: var(--amber);
+  }
+
+  /* ---------- HERO ---------- */
+
+  header.hero {
+    background: var(--hero-bg);
+    color: var(--hero-text);
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+    align-items: center;
+    padding: 96px 0 88px;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.95rem;
+    color: var(--amber-soft, #D9A65B);
+    margin-bottom: 18px;
+  }
+
+  h1.hero-title {
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-role {
+    margin-top: 18px;
+    font-size: 1.15rem;
+    color: #C9CFC9;
+    max-width: 32ch;
+  }
+
+  .hero-credentials {
+    margin-top: 36px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border-top: 1px solid rgba(241,239,232,0.18);
+  }
+
+  .hero-credentials div {
+    padding: 14px 22px 14px 0;
+    margin-right: 22px;
+    border-right: 1px solid rgba(241,239,232,0.18);
+    font-size: 0.88rem;
+    color: #C9CFC9;
+  }
+
+  .hero-credentials div:last-child { border-right: none; }
+
+  .hero-credentials strong {
+    display: block;
+    color: var(--hero-text);
+    font-size: 0.98rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .hero-mark {
+    justify-self: center;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 28%, #E7B96A, #B8842E 55%, #6E4A1C 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 1px rgba(241,239,232,0.15);
+    animation: rise 1.1s ease-out;
+    overflow: hidden;
+  }
+
+  .hero-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-mark span {
+    font-family: 'Fraunces', serif;
+    font-size: 3.4rem;
+    color: #16232B;
+    font-weight: 600;
+  }
+
+  @media (max-width: 720px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+      padding: 56px 0 48px;
+      text-align: left;
+    }
+    .hero-mark { justify-self: start; width: 140px; height: 140px; }
+    .hero-mark span { font-size: 2.2rem; }
+  }
+
+  /* ---------- SECTIONS ---------- */
+
+  section {
+    padding: 84px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  section:last-of-type { border-bottom: none; }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 40px;
+  }
+
+  .section-label {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    padding-top: 4px;
+  }
+
+  .section-body h2 {
+    font-size: 1.7rem;
+    margin-bottom: 22px;
+  }
+
+  .section-body p {
+    max-width: 62ch;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+  }
+
+  .section-body p + p { margin-top: 16px; }
+
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 36px;
+    align-items: start;
+  }
+
+  .about-photo {
+    margin: 0;
+  }
+
+  .about-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--line);
+  }
+
+  .about-photo figcaption {
+    margin-top: 8px;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 720px) {
+    .section-head { grid-template-columns: 1fr; gap: 16px; }
+    .about-layout { grid-template-columns: 1fr; }
+    .about-photo { max-width: 260px; }
+  }
+
+  /* ---------- EXPERTISE ---------- */
+
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    max-width: 62ch;
+  }
+
+  .expertise-grid div {
+    padding: 16px 18px 16px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 1rem;
+  }
+
+  .expertise-grid div:nth-child(odd) {
+    border-right: 1px solid var(--line);
+    padding-right: 18px;
+  }
+
+  .expertise-grid div:nth-child(even) { padding-left: 24px; }
+
+  @media (max-width: 560px) {
+    .expertise-grid { grid-template-columns: 1fr; }
+    .expertise-grid div:nth-child(odd) { border-right: none; }
+    .expertise-grid div:nth-child(even) { padding-left: 0; }
+  }
+
+  /* ---------- JOURNEY ---------- */
+
+  .journey {
+    max-width: 62ch;
+  }
+
+  .journey-item {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 20px;
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .journey-item:last-child { border-bottom: 1px solid var(--line); }
+
+  .journey-period {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    padding-top: 2px;
+  }
+
+  .journey-role strong {
+    display: block;
+    font-size: 1.02rem;
+    margin-bottom: 4px;
+  }
+
+  .journey-role span {
+    color: var(--ink-soft);
+    font-size: 0.96rem;
+  }
+
+  @media (max-width: 560px) {
+    .journey-item { grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  /* ---------- COMMUNITY ---------- */
+
+  .community {
+    background: var(--teal-soft);
+  }
+
+  .community .section-label { color: var(--teal); }
+
+  .community .section-body p { color: var(--ink); opacity: 0.85; }
+
+  .community-badge {
+    display: inline-block;
+    margin-top: 26px;
+    padding: 10px 18px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- CONNECT ---------- */
+
+  .venture-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 28px;
+    max-width: 78ch;
+  }
+
+  .venture-gallery figure {
+    margin: 0;
+  }
+
+  .venture-gallery img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--line);
+  }
+
+  .venture-gallery figcaption {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 720px) {
+    .venture-gallery { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .venture-gallery { grid-template-columns: 1fr; }
+  }
+
+  .community-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 28px;
+    max-width: 62ch;
+  }
+
+  .community-gallery figure {
+    margin: 0;
+  }
+
+  .community-gallery img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--line);
+  }
+
+  .community-gallery figcaption {
+    margin-top: 8px;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 640px) {
+    .community-gallery { grid-template-columns: 1fr; }
+  }
+
+  .connect .section-body p { max-width: 52ch; }
+
+  .connect-note {
+    margin-top: 28px;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    border-left: 2px solid var(--amber);
+    padding-left: 16px;
+  }
+
+  footer {
+    padding: 32px 0 48px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- IMAGE WRAPPERS (AVIF with JPEG fallback) ---------- */
+
+  .hero-mark picture,
+  .about-photo picture,
+  .venture-gallery picture,
+  .community-gallery picture { display: block; }
+
+  .hero-mark picture { width: 100%; height: 100%; }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-name">Maria Carranza</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#journey">Experience</a></li>
+      <li><a href="#ventures">Ventures</a></li>
+      <li><a href="#community">Community</a></li>
+      <li><a href="#connect">Connect</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="hero-eyebrow">St. Petersburg, Florida</div>
+      <h1 class="hero-title">Twenty five years in the clinical laboratory, and a decade building community.</h1>
+      <p class="hero-role">Clinical Laboratory Consultant with a career spent across chemistry, hematology, coagulation, microbiology, molecular diagnostics, and urinalysis.</p>
+      <div class="hero-credentials">
+        <div><strong>MT</strong>Florida licensed</div>
+        <div><strong>SH(ASCP)</strong>Board certified</div>
+        <div><strong>25+ years</strong>Clinical laboratory science</div>
+        <div><strong>Founder</strong>Awakening Into the Sun, 2012 to 2025</div>
+      </div>
+    </div>
+    <div class="hero-mark" aria-hidden="true"><picture><source srcset="images/maria-portrait-hero.avif" type="image/avif"><img src="images/fallback/maria-portrait-hero.jpg" alt="" width="900" height="900" loading="eager" decoding="async"></picture></div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap section-head">
+    <div class="section-label">About</div>
+    <div class="section-body">
+      <h2>A career built from the bench up</h2>
+      <div class="about-layout">
+        <div>
+          <p>Maria Carranza has spent more than twenty five years in clinical laboratory science, working across reference laboratories, hospitals, non-profit healthcare organizations, and state regulatory agencies. Her background includes hands-on inspection experience with the Florida Agency for Health Care Administration and the Centers for Medicare and Medicaid Services, giving her a clear view of laboratory operations from the bench to the inspection binder.</p>
+          <p>She holds a Florida MT license and is board certified as a Specialist in Hematology, SH(ASCP). Most recently, she served as Technical Supervisor at Integra Diagnostics, a high complexity clinical laboratory in St. Petersburg, where she led the buildout of laboratory procedures, instrumentation selection, and method validation across multiple disciplines. She now works independently as a Clinical Laboratory Consultant.</p>
+        </div>
+        <figure class="about-photo">
+          <picture><source srcset="images/maria-portrait-about.avif" type="image/avif"><img src="images/fallback/maria-portrait-about.jpg" alt="Maria Carranza outdoors" width="760" height="875" loading="lazy" decoding="async"></picture>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="expertise">
+  <div class="wrap section-head">
+    <div class="section-label">Areas of expertise</div>
+    <div class="section-body">
+      <h2>Where the work happens</h2>
+      <div class="expertise-grid">
+        <div>Clinical Chemistry</div>
+        <div>Hematology</div>
+        <div>Coagulation</div>
+        <div>Microbiology</div>
+        <div>Molecular Diagnostics</div>
+        <div>Urinalysis</div>
+        <div>Regulatory Compliance</div>
+        <div>Inspection Readiness</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="journey">
+  <div class="wrap section-head">
+    <div class="section-label">Experience</div>
+    <div class="section-body">
+      <h2>Settings that shaped her practice</h2>
+      <div class="journey">
+        <div class="journey-item">
+          <div class="journey-period">Career start</div>
+          <div class="journey-role"><strong>Reference laboratories and hospitals</strong><span>Bench and supervisory work across chemistry, hematology, coagulation, microbiology, molecular, and urinalysis.</span></div>
+        </div>
+        <div class="journey-item">
+          <div class="journey-period">Regulatory</div>
+          <div class="journey-role"><strong>Florida AHCA and CMS</strong><span>Conducted state and federal laboratory inspections, building a working knowledge of compliance from the regulator's side of the table.</span></div>
+        </div>
+        <div class="journey-item">
+          <div class="journey-period">Non-profit</div>
+          <div class="journey-role"><strong>Non-profit healthcare organizations</strong><span>Laboratory operations in mission-driven settings.</span></div>
+        </div>
+        <div class="journey-item">
+          <div class="journey-period">Most recent</div>
+          <div class="journey-role"><strong>Technical Supervisor, Integra Diagnostics</strong><span>Led procedure development, instrumentation selection, and validation for a new high complexity laboratory in St. Petersburg.</span></div>
+        </div>
+        <div class="journey-item">
+          <div class="journey-period">Current</div>
+          <div class="journey-role"><strong>Independent Clinical Laboratory Consultant</strong><span>Helping laboratories build compliant, high quality operations from the ground up.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ventures">
+  <div class="wrap section-head">
+    <div class="section-label">Entrepreneurship</div>
+    <div class="section-body">
+      <h2>Awakening Into Wellness</h2>
+      <p>From 2014 to 2020, Maria co-owned Awakening Into Wellness, a holistic wellness studio in St. Petersburg's Grand Central District. The studio offered services including massage therapy, Reiki, and sound therapy, along with a Himalayan salt room and monthly workshops introducing the community to alternative approaches to health. The studio closed in 2020.</p>
+      <div class="venture-gallery">
+        <figure>
+          <picture><source srcset="images/studio-sign.avif" type="image/avif"><img src="images/fallback/studio-sign.jpg" alt="Awakening Into Wellness storefront sign" width="900" height="896" loading="lazy" decoding="async"></picture>
+          <figcaption>The studio's sign in St. Petersburg's Grand Central District.</figcaption>
+        </figure>
+        <figure>
+          <picture><source srcset="images/studio-mural.avif" type="image/avif"><img src="images/fallback/studio-mural.jpg" alt="Hand painted mural of an eye with a sunrise at the studio" width="898" height="900" loading="lazy" decoding="async"></picture>
+          <figcaption>"Awakening," a hand painted mural by artist Vannessa Circe, an eye holding a sunrise.</figcaption>
+        </figure>
+        <figure>
+          <picture><source srcset="images/studio-team.avif" type="image/avif"><img src="images/fallback/studio-team.jpg" alt="The Awakening Into Wellness team in front of the mural" width="900" height="478" loading="lazy" decoding="async"></picture>
+          <figcaption>The team, gathered in front of the mural.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="community" class="community">
+  <div class="wrap section-head">
+    <div class="section-label">Community leadership</div>
+    <div class="section-body">
+      <h2>Awakening Into the Sun</h2>
+      <p>In 2012, Maria founded Awakening Into the Sun, an annual wellness and arts festival held each spring at North Straub Park in downtown St. Petersburg. Co-sponsored by the City of St. Petersburg, the free two-day event grew over the years to include live music, yoga, and more than one hundred local vendors, artists, and wellness practitioners.</p>
+      <p>For twelve years, Maria led the festival and its nonprofit organization, Awakening Into the Sun, Inc., a 501(c)(3), built around a simple idea: small businesses, artists, and healers thrive when a community gives them room to gather. In 2025, she passed leadership of both the festival and the nonprofit to a close friend she trusted to carry the vision forward.</p>
+      <div class="community-badge">The festival continues each spring, still bringing St. Petersburg together.</div>
+      <div class="community-gallery">
+        <figure>
+          <picture><source srcset="images/festival-2025-graphic.avif" type="image/avif"><img src="images/fallback/festival-2025-graphic.jpg" alt="Awakening Into the Sun festival logo, March 8 to 9 2025, North Straub Park" width="900" height="466" loading="lazy" decoding="async"></picture>
+          <figcaption>The festival's 2025 event graphic.</figcaption>
+        </figure>
+        <figure>
+          <picture><source srcset="images/festival-yoga.avif" type="image/avif"><img src="images/fallback/festival-yoga.jpg" alt="Morning yoga session on the lawn at the festival" width="900" height="326" loading="lazy" decoding="async"></picture>
+          <figcaption>Morning yoga on the lawn.</figcaption>
+        </figure>
+        <figure>
+          <picture><source srcset="images/festival-vendors.avif" type="image/avif"><img src="images/fallback/festival-vendors.jpg" alt="Vendor tents and attendees at the festival" width="900" height="506" loading="lazy" decoding="async"></picture>
+          <figcaption>The vendor market in full swing.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="connect" class="connect">
+  <div class="wrap section-head">
+    <div class="section-label">Connect</div>
+    <div class="section-body">
+      <h2>Get in touch</h2>
+      <p>Maria is available for clinical laboratory consulting work across Florida, including procedure development, instrument validation, and inspection readiness.</p>
+      <div class="connect-note">Contact details for this section are still being finalized.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Maria Carranza, MT, SH(ASCP). St. Petersburg, Florida.</div>
+</footer>
+
+</body>
+</html>
