@@ -24,8 +24,17 @@ look for the sentences you recognise and type over them. Everything between angl
 brackets like `<p>` is formatting; leave those alone and only change the plain words
 between them.
 
-The contact section currently says *"Contact details for this section are still being
-finalized."* Replace that sentence whenever you're ready.
+## Changing your phone number
+
+In `index.html`, search for `813`. You'll find it twice and **both** need changing:
+
+```html
+<a class="contact-phone" href="tel:+18135631923">(813) 563-1923</a>
+```
+
+- The one after `tel:` is what your phone dials. It has no brackets or dashes, and starts
+  with `+1`.
+- The one between `>` and `<` is what visitors see, so it can be formatted however you like.
 
 ## Changing a photo
 
